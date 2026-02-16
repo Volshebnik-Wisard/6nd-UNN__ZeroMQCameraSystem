@@ -1,0 +1,31 @@
+# Перейдите в .\ZeroMQCameraSystem\packages\protobuf-v141.3.7.1\build\native\include\google\protobuf
+
+..\..\..\bin\protoc.exe --cpp_out=. .\video_processing.proto
+
+#.\bin\protoc.exe --cpp_out=. .\include\google\protobuf\video_processing.proto 
+
+# Не рекомендуется так как в video_processing.pb.cc будет:
+
+# // source: include/google/protobuf/video_processing.proto
+# include "include/google/protobuf/video_processing.pb.h"
+
+# вместо
+
+# // source: video_processing.proto
+# include "video_processing.pb.h"
+
+# Можно изменить include или:
+
+# придётся менять путь в свойствах проекта для:
+# - С/С++ -> Общее -> Дополнительные каталоги включаемых файлов
+# - Компоновщик -> Общее -> Дополнительные каталоги библиотек
+# - Компоновщик -> Ввод -> Дополнительные зависимости
+
+# Дополнительные каталоги включаемых файлов
+# .\libzmq-v141-x64-4_3_4\include;.\opencv-4.12.0\build\include;..\packages\protobuf-v141.3.7.1\build\native\include;..\packages\protobuf-v141.3.7.1\build\native\include\google\protobuf;%(AdditionalIncludeDirectories)
+
+# Дополнительные каталоги библиотек
+# .\libzmq-v141-x64-4_3_4\lib;.\opencv-4.12.0\build\x64\vc16\lib;..\packages\protobuf-v141.3.7.1\build\native\lib\x64\v141\Release\static;..\packages\protobuf-v141.3.7.1\build\native\lib\x64\v141\Debug\static;%(AdditionalLibraryDirectories)
+
+# Дополнительные зависимости
+# libzmq-v141-mt-4_3_4.lib;libzmq-v141-mt-s-4_3_4.lib;opencv_world4120.lib;opencv_world4120d.lib;libprotobuf.lib;libprotobufd.lib;%(AdditionalDependencies)
