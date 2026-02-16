@@ -1,0 +1,35 @@
+﻿# 2
+#.\ZeroMQCameraSystem\
+
+# === СЕТЕВЫЕ АДРЕСА ===
+capturer_bind_addresses=tcp://localhost:5555,tcp://*:5555
+worker_to_capturer_connect_addresses=tcp://localhost:5555,tcp://*:5555
+worker_to_composer_connect_addresses=tcp://localhost:5556,tcp://*:5556
+composer_bind_addresses=tcp://localhost:5556,tcp://*:5556
+
+# === НАСТРОЙКИ CAPTURER ===
+camera_id=0  # <-- Добавлено: ID камеры (обычно 0 для встроенной, 1 для внешней)
+queue_size=100
+cap_frame_width=640
+cap_frame_height=480
+cap_fps=30
+cap_quality=80
+
+# === НАСТРОЙКИ WORKER ===
+effect_canny_low_threshold=60
+effect_canny_high_threshold=160
+effect_gaussian_kernel_size=3
+effect_dilation_kernel_size=0
+effect_color_quantization_levels=8
+effect_black_contours=true
+
+# === НАСТРОЙКИ COMPOSER ===
+frame_gap=500
+buffer_size=2000
+
+# === ФОРМАТЫ ДАННЫХ ===
+proto_pixel_format=BGR
+proto_image_encoding=JPEG
+
+# 1
+#.\x64\Release\config.txt
