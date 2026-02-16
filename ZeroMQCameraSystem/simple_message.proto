@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+package simple;
+
+message Person {
+    string name = 1;
+    int32 age = 2;
+    string email = 3;
+}
+
+message DataPacket {
+    repeated Person people = 1;
+    string timestamp = 2;
+    int32 message_id = 3;
+}

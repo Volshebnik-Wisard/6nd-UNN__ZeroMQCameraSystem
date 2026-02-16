@@ -1,0 +1,1 @@
+https://www.nuget.org/packages/protobuf-v141/3.7.1
